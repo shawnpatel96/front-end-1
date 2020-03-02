@@ -12,11 +12,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1>Wunderlist 2.0</h1>
-      <Navigation/>
-      <Route exact path='/'><Home/></Route>
-      <Route path='/login'><Login/></Route>
-      <Route path='/register'><Register/></Route>
+        <h1>Wunderlist 2.0</h1>
+        <Navigation/>
+        <Route exact path='/'><Home/></Route>
+        <Route path='/login'><Login/></Route>
+        <Route path='/register'><Register/></Route>
       </header>
     </div>
   );

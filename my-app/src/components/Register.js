@@ -23,7 +23,7 @@ export const Register = () => {
                     id='name'
                     type='text'
                     name='name'
-                    required='true'
+                    required={true}
                     onChange={handleChanges}
                     value={register.name}
                 />
@@ -33,7 +33,7 @@ export const Register = () => {
                     id='email'
                     type='email'
                     name='email'
-                    required='true'
+                    required={true}
                     onChange={handleChanges}
                     value={register.email}
                 />
@@ -43,7 +43,7 @@ export const Register = () => {
                     id='username'
                     type='username'
                     name='username'
-                    required='true'
+                    required={true}
                     onChange={handleChanges}
                     value={register.username}
                 />
@@ -53,7 +53,7 @@ export const Register = () => {
                     id='password'
                     type='password'
                     name='password'
-                    required='true'
+                    required={true}
                     onChange={handleChanges}
                     value={register.password}
                 />

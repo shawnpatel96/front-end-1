@@ -23,7 +23,7 @@ const Login = () => {
                     id='username'
                     type='username'
                     name='username'
-                    required='true'
+                    required={true}
                     onChange={handleChanges}
                     value={login.username}
                 />
@@ -33,7 +33,7 @@ const Login = () => {
                     id='password'
                     type='password'
                     name='password'
-                    required='true'
+                    required={true}
                     onChange={handleChanges}
                     value={login.password}
                 />
