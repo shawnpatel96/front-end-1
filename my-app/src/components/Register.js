@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 
 
 export const Register = () => {
@@ -14,6 +15,15 @@ export const Register = () => {
         e.preventDefault();
         setRegister({name:'',username:'', password:''});
         console.log('Name:', register.name,'Username:', register.username, 'Password:', register.password)
+
+        axios
+            .post('https://reqres.in/api/register', register)
+            .then(res => {
+                console.log(res.data, 'it worked');
+            })
+            .catch(err => {
+                console.log(err.data, 'register try again');
+            });
     };
 
     return(
@@ -27,6 +37,7 @@ export const Register = () => {
                     name='name'
                     onChange={handleChanges}
                     value={register.name}
+                    required
                 />
                 <br/>
                 <label htmlFor='username'>Username: </label>
@@ -36,6 +47,7 @@ export const Register = () => {
                     name='username'
                     onChange={handleChanges}
                     value={register.username}
+                    required
                 />
                 <br/>
                 <label htmlFor='password'>Password: </label>
@@ -45,9 +57,11 @@ export const Register = () => {
                     name='password'
                     onChange={handleChanges}
                     value={register.password}
+                    required
                 />
                 <br/>
                 <Link to='/todo' style={{ textDecoration: 'none', color: 'white' }}><button type='submit'>Register</button></Link>
+                {/* <button>Register</button> */}
             </form>
         </div>
     )
