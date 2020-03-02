@@ -42,7 +42,7 @@ const Login = () => {
         console.log('Username:', login.username, 'Password:', login.password)
 
         axios
-            .post('https://reqres.in/login', login)
+            .post('https://reqres.in/api/login', login)
             .then(res=>{
                 console.log(res.data, 'login worked')
             })
