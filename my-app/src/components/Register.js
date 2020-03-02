@@ -19,10 +19,10 @@ export const Register = () => {
         axios
             .post('https://reqres.in/api/register', register)
             .then(res => {
-                console.log(res.data, 'it worked');
+                console.log(res.data, 'register worked');
             })
             .catch(err => {
-                console.log(err.data, 'register try again');
+                console.log(err.data, 'register failed');
             });
     };
 
@@ -60,7 +60,7 @@ export const Register = () => {
                     required
                 />
                 <br/>
-                <Link to='/todo' style={{ textDecoration: 'none', color: 'white' }}><button type='submit'>Register</button></Link>
+                <Link to='/todo' style={{ textDecoration: 'none', color: '#e3dac9' }}><button type='submit'>Register</button></Link>
                 {/* <button>Register</button> */}
             </form>
         </div>

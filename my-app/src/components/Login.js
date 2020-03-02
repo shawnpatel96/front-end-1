@@ -9,24 +9,24 @@ const LoginStyle = styled.section`
     padding: 2%;
     border: 1px dashed white;
 `
-const Form = styled.p`
-    border: 1px dashed white;
-    padding: 3%;
-    margin: 3%;
-    background: #36454F;
-    color: #e3dac9;
-`
-const Field = styled.span`
-    margin: 1%;
-`
-const Button = styled.span`
-    border: 1px solid white;
-    margin: 3%;
-    padding: 0.5%;
-    border-radius: 15%; 
-    background: #36454F;
-    color: #e3dac9;   
-`
+// const Form = styled.p`
+//     border: 1px dashed white;
+//     padding: 3%;
+//     margin: 3%;
+//     background: #36454F;
+//     color: #e3dac9;
+// `
+// const Field = styled.span`
+//     margin: 1%;
+// `
+// const Button = styled.span`
+//     border: 1px solid white;
+//     margin: 3%;
+//     padding: 0.5%;
+//     border-radius: 15%; 
+//     background: #36454F;
+//     color: #e3dac9;   
+// `
 
 const Login = () => {
 
@@ -36,45 +36,50 @@ const Login = () => {
         setLogin({...login, [e.target.name]: e.target.value})
     };
 
-    const submitForm = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
         setLogin({username:'', password:''});
         console.log('Username:', login.username, 'Password:', login.password)
+
+        axios
+            .post('https://reqres.in/login', login)
+            .then(res=>{
+                console.log(res.data, 'login worked')
+            })
+            .catch(err=>{
+                console.log(err.data, 'login failed')
+            })
     };
 
     return(
         <LoginStyle>
             <h1>Login</h1>
             
-            <form onSubmit={submitForm}>
-                <Form>
-                    <Field>
-                        <label htmlFor='username'>Username: </label>
-                        <input 
-                            id='username'
-                            type='username'
-                            name='username'
-                            onChange={handleChanges}
-                            value={login.username}
-                        />
-                    </Field>
-                    
-                    <Field>
-                        <label htmlFor='password'>Password: </label>
-                        <input
-                            id='password'
-                            type='password'
-                            name='password'
-                            onChange={handleChanges}
-                            value={login.password}
-                        />
-                    </Field>
-                    
-                    </Form>
+            <form onSubmit={event => handleSubmit(event)}>
+                <label htmlFor='username'>Username: </label>
+                <input 
+                    id='username'
+                    type='username'
+                    name='username'
+                    onChange={handleChanges}
+                    value={login.username}
+                    required
+                />
+
+                <label htmlFor='password'>Password: </label>
+                <input
+                    id='password'
+                    type='password'
+                    name='password'
+                    onChange={handleChanges}
+                    value={login.password}
+                    required
+                />
+
                 <br/>
-                <Button>
-                    <Link to='/todo' style={{ textDecoration: 'none', color: '#e3dac9' }}>Login</Link>
-                </Button>  
+
+                {/* <Link to='/todo' style={{ textDecoration: 'none', color: '#e3dac9' }}><button type='submit'>Login</button></Link>  */}
+                <button type='submit'>Login</button>
             </form>
         </LoginStyle>
     )
