@@ -5,9 +5,9 @@ const Navigation = () => {
     // console.log('navigation running')
     return (
         <div>
-            <Link to='/'>Home</Link>
-            <Link to='/login'>Login</Link>
-            <Link to='/register'>Register</Link>
+            <Link to='/' style={{ textDecoration: 'none', color: 'white' }}>Home</Link>
+            <Link to='/login' style={{ textDecoration: 'none', color: 'white' }}>Login</Link>
+            <Link to='/register' style={{ textDecoration: 'none', color: 'white' }}>Register</Link>
         </div>
     )
 }
