@@ -44,10 +44,10 @@ const Login = () => {
         axios
             .post('https://reqres.in/api/login', login)
             .then(res=>{
-                console.log(res.data, 'login worked')
+                console.log(res, 'login worked')
             })
             .catch(err=>{
-                console.log(err.data, 'login failed')
+                console.log(err, 'login failed')
             })
     };
 
@@ -78,8 +78,8 @@ const Login = () => {
 
                 <br/>
 
-                {/* <Link to='/todo' style={{ textDecoration: 'none', color: '#e3dac9' }}><button type='submit'>Login</button></Link>  */}
-                <button type='submit'>Login</button>
+                <Link to='/todo' style={{ textDecoration: 'none', color: '#e3dac9' }}><button type='submit'>Login</button></Link> 
+                {/* <button type='submit'>Login</button> */}
             </form>
         </LoginStyle>
     )
