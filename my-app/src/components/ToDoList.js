@@ -7,15 +7,16 @@ import ToDoCard from './ToDoCard';
 
 const ToDoList = () => {
 
-    const [todo, setTodo] = useState();
+    const [todo, setTodo] = useState([]);
 
     useEffect(() => {
         const getList = () =>{
             axios
-                .get('https://reqres.in/api/unknown', todo)
+                .get('https://reqres.in/api/unknown')
                 .then(res=>{
                     console.log(res.data.data, 'todo list worked')
                     setTodo(res.data.data);
+                    console.log(todo);
                 })
                 .catch(err=>{
                     console.log(err, 'todo list failed')
@@ -27,6 +28,7 @@ const ToDoList = () => {
 
     return(
         <section className='ToDoList'>
+            <h1>ToDo List</h1>
             {todo.map(e => {
                 return(
                     <ToDoCard 
@@ -37,6 +39,8 @@ const ToDoList = () => {
                 )
             })}
         </section>
+
+        // <h1>works</h1>
     )
 }
 
