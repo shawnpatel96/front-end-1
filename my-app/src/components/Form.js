@@ -3,17 +3,15 @@ import { useParams } from "react-router-dom";
 import axiosWithAuth from"../utils/axiosWithAuth"
 import axios from "axios";
 
-
- 
 const initialTask = {
-    description: '',
+    description: '',       // add more endpoints here day month etc
     frequency: ''
 }
 
 const Form =({tasks, updateTasks})=>{
     console.log(tasks)
 
-    // const[editing, setEditing]= useState(false);
+    const[editing, setEditing]= useState(false);
     const[taskToEdit, setTaskToEdit]=useState(initialTask)
     const {id}= useParams();
     
@@ -35,8 +33,15 @@ const Form =({tasks, updateTasks})=>{
         const value= e.target.value
         setNewTask({
             ...newTask,
-            description:value,
-            frequency: value
+           
+            frequency: e.target.value
+        })
+    }
+
+    const handleNewDes =e=>{
+        setNewTask({
+            ...newTask,
+            description:e.target.value                  
         })
     }
 
@@ -83,14 +88,16 @@ const Form =({tasks, updateTasks})=>{
             console.log('this is ERROR from PUT in saveEdit from Form.js',err)
         })
     };
+    
 
     return (
         <div>
         <h1> hello from form component</h1>
         <form onSubmit={addTask}>
             <div>
-                <input name="task" type="text" placeholder="task here" value={newTask.description} onChange={handleNewTask}/>
-                <input name="frequency" type="text" placeholder="frequency here" value={newTask.banana} onChange={handleNewTask}/>
+              
+                <input name="task" type="text" placeholder="task here" value={newTask.description} onChange={handleNewDes}/>
+                <input name="task" type="text" placeholder="Frequency here" value={newTask.frequency} onChange={handleNewTask}/>
          
                 <button>Add New Task</button>
             </div>

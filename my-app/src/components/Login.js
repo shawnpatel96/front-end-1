@@ -37,7 +37,7 @@ const handleSubmit = e => {
       <form onSubmit={handleSubmit}>
 
       <input type="text" name="username" placeholder="username here" value={login.username} onChange={handleChanges}/>
-           
+      <input type="password" name="password" placeholder="username here" value={login.password} onChange={handleChanges}/>          
       <button> Login </button>
 
       </form>         
