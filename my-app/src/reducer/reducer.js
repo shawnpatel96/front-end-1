@@ -2,12 +2,13 @@ export const initialState =[
     {
         task: '',
         completed: false,
-        id: 3892987589
+        name:''
+  
     }
 
 ]
 
-export const reducer = (state,action) => {
+export const reducer = (state=initialState,action) => {
     console.log("inside the reducer", action)
     switch(action.type) {
         case "ADD_TASK":

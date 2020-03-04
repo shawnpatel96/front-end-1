@@ -18,9 +18,8 @@ const Form =({dispatch})=>{
     const [newTask, setNewTask] = useState({
         description: '',
         frequency:'',
-        day:'',
-        weekday:'',
-        month:''
+        day:null
+      
        
     })
 
@@ -73,11 +72,15 @@ const Form =({dispatch})=>{
             placeholder="add a task"
           
             />
-            <select>
-                <option value={newTask.day} name="day">Day</option>
-                <option value={newTask.weekday}name="weekday">Weekly</option>
-                <option value={newTask.month} name="month">Monthly</option>
-            </select>
+               <input 
+            type="text" 
+            name="day" 
+            value={newTask.day} 
+            onChange={handleChanges} 
+            placeholder="add a day"
+          
+            />
+        
             
             <button type="submit">ADD_TASK</button>
             <button onClick={clearTask}>Clear</button>
