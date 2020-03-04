@@ -42,7 +42,7 @@ const Login = () => {
         console.log('Username:', login.username, 'Password:', login.password)
 
         axios
-            .post('https://reqres.in/api/login', login)
+            .post('https://wunderlistbuildweek.herokuapp.com//api/auth/login', login)
             .then(res=>{
                 console.log(res, 'login worked')
             })

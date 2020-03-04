@@ -17,7 +17,7 @@ export const Register = () => {
         console.log('Name:', register.name,'Username:', register.username, 'Password:', register.password)
 
         axios
-            .post('https://reqres.in/api/register', register)
+            .post('https://wunderlistbuildweek.herokuapp.com//api/auth/register', register)
             .then(res => {
                 console.log(res.data, 'register worked');
             })

@@ -12,6 +12,7 @@ const ToDoList = () => {
     useEffect(() => {
         const getList = () =>{
             axios
+            // https://wunderlistbuildweek.herokuapp.com/api/lists/today
                 .get('https://reqres.in/api/unknown')
                 .then(res=>{
                     console.log(res.data.data, 'todo list worked')
