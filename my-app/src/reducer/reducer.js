@@ -1,13 +1,8 @@
 export const initialState =[
     {
-        task: 'Take out Trash',
+        task: '',
         completed: false,
         id: 3892987589
-    },
-    {
-        task: 'Take out Trash Again',                // CHANGE endpoints TO NEW BACKEND API ////////////////////////////
-        completed: false,
-        id: 38929875842
     }
 
 ]
@@ -18,9 +13,9 @@ export const reducer = (state,action) => {
         case "ADD_TASK":
             return [
                 ...state, {
-                    task:action.payload,                       // change endpoints here /////
+                    task:action.payload,                       
                     completed: false,
-                    id: Date.now()
+             
                 }
             ]
         case "TOGGLE_TASK":

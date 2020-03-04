@@ -9,25 +9,32 @@ const initialTask = {
 }
 
 const Form =({dispatch, tasks, updateTasks})=>{
-    console.log(tasks)
+  
 
-    const[editing, setEditing]= useState(false);
-    const[taskToEdit, setTaskToEdit]=useState(initialTask)
-    const {id}= useParams();
+    // const[editing, setEditing]= useState(false);
+    // const[taskToEdit, setTaskToEdit]=useState(initialTask)
+    
     
     const [newTask, setNewTask] = useState('')
 
     const addTask =(e)=>{
         e.preventDefault()
+       
         axiosWithAuth()
         .post('/api/lists/1/tasks', newTask)
         .then(res=>{
             console.log("this is RESPONSE from POST in ADDTASK from Form.js", res)
-            updateTasks([...tasks, newTask])
+           
         })
         .catch(err=>{
             console.log('this is ERROR from POST in ADDTASK from Form.js', err)
         })
+        
+    }
+    const handleSubmit = e =>{
+        e.preventDefault();
+        dispatch({type: "ADD_TASK", payload:newTask})
+        setNewTask("")
     }
     const handleNewTask= e=>{
         const value= e.target.value
@@ -49,55 +56,55 @@ const Form =({dispatch, tasks, updateTasks})=>{
         dispatch({type:"CLEAR_TASK"})
     }
 
-    const deleteTask= task=>{
-        axiosWithAuth()
-        .delete(`https://wunderlistbuildweek.herokuapp.com/api/lists/${taskToEdit.id}/tasks/`)
-        .then(res=>{
-            console.log('this is RESPONSE in deleteTASK from DELETE in Form.js', res)
-            axiosWithAuth()
-            .get(`https://wunderlistbuildweek.herokuapp.com/api/lists/:id/tasks/`)
-            .then(res=>{
-                console.log('this is RESPONSE in DELETETASK from GET in Form.js ')
-                updateTasks(res.data)
-            })
-            .catch(err=>{
-                console.log('this is ERROR from GET in DeleteTask from Form.js')
-            })
-        })
-        .catch(err=>{
-            console.log('this is ERROR from Delete in deleteTask from Form.js')
-        })
-    }
-     const editTask= task=>{
-        setEditing(true)
-        setTaskToEdit(task);
-    }
-    const saveEdit = e=>{
-        e.preventDefault()
-        axiosWithAuth()
-        .put(`/api/list/:id/tasks/${taskToEdit.id}`, taskToEdit)
-        .then(res=>{
-            console.log('this is RESPONSE from PUT in SAVeEDIT in form.js ', res)
-            axiosWithAuth()
-            .get(`https://wunderlistbuildweek.herokuapp.com/api/lists/:id/tasks`)
-            .then(res=>{
-                console.log('this is RESPONSE from GET in saveEdit from Form.js',res)
-                updateTasks(res.data)
-            })
-            .catch(err=>{
-                console.log('this is ERROR from THEN in saveedit from Form.js',err)
-            })
-        })
-        .catch(err=>{
-            console.log('this is ERROR from PUT in saveEdit from Form.js',err)
-        })
-    };
+    // const deleteTask= task=>{
+    //     axiosWithAuth()
+    //     .delete(`https://wunderlistbuildweek.herokuapp.com/api/lists/${taskToEdit.id}/tasks/`)
+    //     .then(res=>{
+    //         console.log('this is RESPONSE in deleteTASK from DELETE in Form.js', res)
+    //         axiosWithAuth()
+    //         .get(`https://wunderlistbuildweek.herokuapp.com/api/lists/:id/tasks/`)
+    //         .then(res=>{
+    //             console.log('this is RESPONSE in DELETETASK from GET in Form.js ')
+    //             updateTasks(res.data)
+    //         })
+    //         .catch(err=>{
+    //             console.log('this is ERROR from GET in DeleteTask from Form.js')
+    //         })
+    //     })
+    //     .catch(err=>{
+    //         console.log('this is ERROR from Delete in deleteTask from Form.js')
+    //     })
+    // }
+    //  const editTask= task=>{
+    //     setEditing(true)
+    //     setTaskToEdit(task);
+    // }
+    // const saveEdit = e=>{
+    //     e.preventDefault()
+    //     axiosWithAuth()
+    //     .put(`/api/list/:id/tasks/${taskToEdit.id}`, taskToEdit)
+    //     .then(res=>{
+    //         console.log('this is RESPONSE from PUT in SAVeEDIT in form.js ', res)
+    //         axiosWithAuth()
+    //         .get(`https://wunderlistbuildweek.herokuapp.com/api/lists/:id/tasks`)
+    //         .then(res=>{
+    //             console.log('this is RESPONSE from GET in saveEdit from Form.js',res)
+    //             updateTasks(res.data)
+    //         })
+    //         .catch(err=>{
+    //             console.log('this is ERROR from THEN in saveedit from Form.js',err)
+    //         })
+    //     })
+    //     .catch(err=>{
+    //         console.log('this is ERROR from PUT in saveEdit from Form.js',err)
+    //     })
+    // };
     
 
     return (
         <div>
         
-        <form onSubmit={addTask}>
+        <form onSubmit={handleSubmit}>
             <div>
               
                 <input name="task" type="text" placeholder="task here" value={newTask.description} onChange={handleNewDes}/>

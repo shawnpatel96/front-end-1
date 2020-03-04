@@ -6,7 +6,9 @@ const List = ({state,dispatch})=>{
     const clearTask = state.length ? (
         state.map(tasks=> {
             return (
-                <Task task={tasks} dispatch={dispatch}/>
+                <div>
+                    <Task task={tasks} dispatch={dispatch}/>
+                </div>
             );
         })
     ) : (
