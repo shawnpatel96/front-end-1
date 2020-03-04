@@ -1,13 +1,14 @@
-import React, { useState, useEffect, useReducer } from "react";
-// import axios from "axios";
-// import axiosWithAuth from '../utils/axiosWithAuth'
+import React, { useReducer } from "react";
+
 import FormTwo from "./FormTwo"
 import List from "./List"
-import AddList from "../components/AddList"
+import AddList from "./AddList"
 import { reducer, initialState } from '../reducer/reducer';
+
+
 const HomePage = ()=>{
 
-    const [formList, setFormList]= useState([]);
+   
     const [state, dispatch]= useReducer(reducer, initialState);
  
     return(

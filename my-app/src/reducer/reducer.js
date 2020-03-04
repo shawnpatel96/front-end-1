@@ -4,7 +4,7 @@ export const initialState =[
         completed: false,
         name:''
   
-    }
+    } 
 
 ]
 
@@ -28,4 +28,4 @@ export const reducer = (state=initialState,action) => {
             )
         default: return state;    
     }
-}
+} 

@@ -18,7 +18,7 @@ const Form =({dispatch})=>{
     const [newTask, setNewTask] = useState({
         description: '',
         frequency:'',
-        day:null
+        
       
        
     })
@@ -69,17 +69,10 @@ const Form =({dispatch})=>{
             name="frequency" 
             value={newTask.frequency} 
             onChange={handleChanges} 
-            placeholder="add a task"
+            placeholder="How Often?"
           
             />
-               <input 
-            type="text" 
-            name="day" 
-            value={newTask.day} 
-            onChange={handleChanges} 
-            placeholder="add a day"
-          
-            />
+         
         
             
             <button type="submit">ADD_TASK</button>
