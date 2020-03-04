@@ -74,9 +74,9 @@ const Form =({dispatch})=>{
           
             />
             <select>
-                <option value="day">Day</option>
-                <option value="weekday">Weekly</option>
-                <option value="month">Monthly</option>
+                <option value={newTask.day} name="day">Day</option>
+                <option value={newTask.weekday}name="weekday">Weekly</option>
+                <option value={newTask.month} name="month">Monthly</option>
             </select>
             
             <button type="submit">ADD_TASK</button>
