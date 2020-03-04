@@ -27,13 +27,15 @@ const Signup =()=>{
       }
       return(
           <>
-          <header>Sign up for WunderList here!</header>
+          <header><header>Welcome To WunderList Sign Up Here!</header> </header>
             <form onSubmit={handleSubmitSignUp}>
                     <input type="text" name="name" placeholder="name here"  value={signup.name} onChange={handleSignup}/>
                     <input type="text" name="username" placeholder="username here" value={signup.username} onChange={handleSignup}/>
                     <input type="text" name="password" placeholder="password here" value={signup.password} onChange={handleSignup}/>  
                     <button>Sign Up!</button>
                     <Link to ="/login"><button>Log in!</button></Link>
+                
+                    
             </form>
 
 

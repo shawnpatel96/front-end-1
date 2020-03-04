@@ -55,6 +55,8 @@ const Form =({dispatch})=>{
         .delete(`/api/lists/1/tasks/${newTask.id}`)
     }
     return (
+        <div>
+            <h1>Add Your Chores Here!</h1>
         <form onSubmit={handleSubmit}>
             <input 
             type="text" 
@@ -78,6 +80,7 @@ const Form =({dispatch})=>{
             <button type="submit">ADD_TASK</button>
             <button onClick={clearTask}>Clear</button>
         </form>
+        </div>
     )
 }
 
