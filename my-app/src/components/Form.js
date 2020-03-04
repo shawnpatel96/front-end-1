@@ -8,7 +8,7 @@ const initialTask = {
     frequency: ''
 }
 
-const Form =({tasks, updateTasks})=>{
+const Form =({dispatch, tasks, updateTasks})=>{
     console.log(tasks)
 
     const[editing, setEditing]= useState(false);
@@ -43,6 +43,10 @@ const Form =({tasks, updateTasks})=>{
             ...newTask,
             description:e.target.value                  
         })
+    }
+    const clearTask=(event)=>{
+        event.preventDefault();
+        dispatch({type:"CLEAR_TASK"})
     }
 
     const deleteTask= task=>{
@@ -92,7 +96,7 @@ const Form =({tasks, updateTasks})=>{
 
     return (
         <div>
-        <h1> hello from form component</h1>
+        
         <form onSubmit={addTask}>
             <div>
               
@@ -100,6 +104,7 @@ const Form =({tasks, updateTasks})=>{
                 <input name="task" type="text" placeholder="Frequency here" value={newTask.frequency} onChange={handleNewTask}/>
          
                 <button>Add New Task</button>
+                <button onClick={clearTask}>Clear</button>
             </div>
         </form>
         </div>

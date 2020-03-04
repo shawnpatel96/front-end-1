@@ -1,18 +1,13 @@
 export const initialState =[
     {
-        task: 'Learn about reducers',
+        task: 'Take out Trash',
         completed: false,
         id: 3892987589
     },
     {
-        task: 'Learn about reducers part 2',                // CHANGE endpoints TO NEW BACKEND API ////////////////////////////
+        task: 'Take out Trash Again',                // CHANGE endpoints TO NEW BACKEND API ////////////////////////////
         completed: false,
         id: 38929875842
-    },
-    {
-        task: 'Learn about reducers part 3?',
-        completed: false,
-        id: 3892987584
     }
 
 ]

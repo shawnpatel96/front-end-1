@@ -1,6 +1,7 @@
 import React,{ useState } from 'react';
 
 import Form from './components/Form';
+import Page from "./components/Page"
 
 import Login from "./components/Login"
 import PrivateRoute from "./components/PrivateRoute"
@@ -13,7 +14,7 @@ function App() {
     <div className="App">
       <Switch>
   
-    <PrivateRoute exact path ="/form" component ={Form}/>
+    <PrivateRoute exact path ="/form" component ={Page}/>
     <Route exact path="/" component={Login} />
     <Route component={Login}/>
     

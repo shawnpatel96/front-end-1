@@ -1,28 +1,22 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import axiosWithAuth from '../utils/axiosWithAuth'
+import React, { useState, useEffect, useReducer } from "react";
+// import axios from "axios";
+// import axiosWithAuth from '../utils/axiosWithAuth'
 import Form from "./Form"
+import List from "./List"
 
-
-const List = ()=>{
+import { reducer, initialState } from '../reducer/reducer';
+const HomePage = ()=>{
     const [formList, setFormList]= useState([]);
-    useEffect(()=>{
-        axiosWithAuth()
-        .get('/api/auth/lists')
-        .then(res=>{
-            console.log('this is RESPONSE from GET in List.js', res)
-            setFormList(res.data)
-        })
-        .catch(err=>{
-            console.log('this is ERROR from GET in List.js', err)
-        })
-    },[])
+    const [state, dispatch]= useReducer(reducer, initialState);
+ 
     return(
-        <>
-        <Form tasks={formList}/>
-        </>
+        <div>
+        <p>Welcome to WunderList Home Page</p>
+        <Form tasks={formList} dispatch={dispatch}/>
+        <List state={state} dispatch={dispatch}/>
+        </div>
     )
 }
 
 
-export default List
+export default HomePage
