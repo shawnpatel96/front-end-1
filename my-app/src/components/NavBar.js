@@ -10,7 +10,7 @@ export const NavBar = () => {
     return (
         <Nav>
             <ul>
-            <li><a href ="https://www.google.com/">Home Page</a></li>        
+            <li><a href ="https://wunderlist-3.github.io/landing/">Home Page</a></li>        
             <li><a href ="/addlist">Add List</a></li>
             
             {/* <Link to ="/addtask"><button>Add A Task</button></Link> */}
