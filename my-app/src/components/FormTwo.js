@@ -1,26 +1,39 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import axiosWithAuth from"../utils/axiosWithAuth"
-
+import {
+    CardWrapper,
+    CardHeader,
+    CardHeading,
+    CardBody,
+    CardIcon,
+    CardFieldset,
+    CardInput,
+    CardOptionsItem,
+    CardOptions,
+    CardOptionsNote,
+    CardButton,
+    CardLink
+  } from "./styles";
 
 
 const Form =({dispatch})=>{
-    axiosWithAuth()
-            
-                .get('https://wunderlistbuildweek.herokuapp.com/api/lists/1/tasks')
-                .then(res=>{
-                    console.log(res)
-               
-               
-                })
-                .catch(err=>{
-                    console.log(err, )
-                })
+    useEffect(()=>{
+        axiosWithAuth()
+        .get('https://wunderlistbuildweek.herokuapp.com/api/lists/1/tasks')
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err ))
+    },[])
+    useEffect(()=>{
+        axiosWithAuth()
+        .get('https://wunderlistbuildweek.herokuapp.com/api/lists/1/tasks')
+        .then(res=>console.log(res))
+        .catch(err=>console.log(err ))
+    },[])
+    
+
     const [newTask, setNewTask] = useState({
         description: '',
         frequency:'',
-        
-      
-       
     })
 
     const handleChanges= e=>{
@@ -32,6 +45,7 @@ const Form =({dispatch})=>{
         })
     }
 
+    
     const handleSubmit= e =>{
         e.preventDefault();
         dispatch({type: "ADD_TASK", payload:newTask})
@@ -53,34 +67,40 @@ const Form =({dispatch})=>{
         dispatch({type:"CLEAR_TASK"})
         axiosWithAuth()
         .delete(`/api/lists/1/tasks/${newTask.id}`)
+        console.log(newTask.id)
+       
     }
     return (
-        <div>
-            <h1>Add Your Chores Here!</h1>
+        <CardWrapper>
+            <CardHeader><CardHeading>Add Your Chores Here!</CardHeading></CardHeader>
+        <CardBody>
         <form onSubmit={handleSubmit}>
-            <input 
+            <CardFieldset>
+            <CardInput 
             type="text" 
             name="description" 
             value={newTask.description} 
             onChange={handleChanges} 
-            placeholder="add a task"
-          
+            placeholder="Add A Task..."
             />
-              <input 
+            </CardFieldset>
+            <CardFieldset>
+              <CardInput 
             type="text" 
             name="frequency" 
             value={newTask.frequency} 
             onChange={handleChanges} 
             placeholder="How Often?"
-          
             />
+            </CardFieldset>
          
         
-            
-            <button type="submit">ADD_TASK</button>
-            <button onClick={clearTask}>Clear</button>
+            <br></br>
+            <CardButton type="submit">Add Da Task</CardButton><br></br>
+            <CardButton onClick={clearTask}>Clear Selected</CardButton>
         </form>
-        </div>
+        </CardBody>
+        </CardWrapper>
     )
 }
 

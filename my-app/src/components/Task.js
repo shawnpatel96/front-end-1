@@ -8,9 +8,11 @@ console.log(task.task)
     }
     
     return (
-        <li>
+        <ul>
+            
             <span onClick={handleToggle} style={{textDecoration: task.completed ? "line-through black":"none"}}>{task.task.description}</span>
-        </li>
+            <button>Edit Task</button>
+        </ul>
     )
 
 }

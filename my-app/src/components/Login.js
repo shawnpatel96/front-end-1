@@ -2,6 +2,22 @@ import React, {useState} from "react";
 import axios from "axios"
 import {Link} from 'react-router-dom';
 
+import ReactDOM from "react-dom";
+import {
+  CardWrapper,
+  CardHeader,
+  CardHeading,
+  CardBody,
+  CardIcon,
+  CardFieldset,
+  CardInput,
+  CardOptionsItem,
+  CardOptions,
+  CardOptionsNote,
+  CardButton,
+  CardLink
+} from "./styles";
+
 
 
 const Login =(props) =>{
@@ -36,17 +52,43 @@ const handleSubmit = e => {
       })
   };
   return (
-      <div>
-                <header>Welcome To WunderList Log in Here!</header>                                               
+      <CardWrapper>
+                <CardHeader><CardHeading>Welcome To WunderList Log in Here!</CardHeading></CardHeader> 
+           <CardBody>                                     
           <form onSubmit={handleSubmit}>
+            <CardFieldset>
+            <CardInput type="text" name="username" placeholder="username here" value={login.username} onChange={handleLogin}/>
+            </CardFieldset>
+            <CardFieldset>
+            <CardInput type="password" name="password" placeholder="username here" value={login.password} onChange={handleLogin}/>  
+            </CardFieldset> 
+            <CardFieldset>
+            <CardOptionsNote>Or sign up with</CardOptionsNote>
 
-            <input type="text" name="username" placeholder="username here" value={login.username} onChange={handleLogin}/>
-            <input type="password" name="password" placeholder="username here" value={login.password} onChange={handleLogin}/>          
-            <button> Login </button>
-            <Link to ='/signup'><button>sign Up</button></Link>
+            <CardOptions>
+              <CardOptionsItem>
+                <CardIcon className="fab fa-google">Google</CardIcon>
+              </CardOptionsItem>
 
+              <CardOptionsItem>
+                <CardIcon className="fab fa-twitter">Twitter</CardIcon>
+              </CardOptionsItem>
+
+              <CardOptionsItem>
+                <CardIcon className="fab fa-facebook">FaceBook</CardIcon>
+              </CardOptionsItem>
+            </CardOptions>
+          </CardFieldset>
+            <CardFieldset>      
+            <CardButton> Login </CardButton>
+            </CardFieldset> 
+            <CardFieldset> 
+            <Link to ='/signup'><CardLink>Sign Up Instead</CardLink></Link>
+            </CardFieldset> 
           </form>
-      </div>
+          </CardBody> 
+             
+      </CardWrapper>
   )
 
 }

@@ -1,6 +1,6 @@
 export const initialState =[
     {
-        task: '',
+        task: 'Take out Trash',
         completed: false,
         name:''
   

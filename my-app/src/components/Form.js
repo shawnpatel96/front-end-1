@@ -1,14 +1,11 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import { useParams } from "react-router-dom";
 import axiosWithAuth from"../utils/axiosWithAuth"
 import axios from "axios";
 
-const initialTask = {
-    description: '',       // add more endpoints here day month etc
-    frequency: ''
-}
 
 const Form =({dispatch, tasks, updateTasks})=>{
+ 
   
 
     // const[editing, setEditing]= useState(false);
