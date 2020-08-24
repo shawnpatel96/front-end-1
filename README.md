@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Deployed Site:
+https://front-end-36vvawtdd.now.sh/
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `yarn start`
+Known Bugs:
+On adding a new task site will need to be relogged for the task to appear, same with editing task. (will solve this with nested axioswithauth calls)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+AddList component will sometimes throw a "code not found error".
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+☝️ Proposal
 
-### `yarn build`
+What problem does your app solve?
+Wunderlist 2.0 takes your traditional to-do list app and automates it. It not only allows you to write your to-do, work, grocery, trip and household lists, but allows you to set up recurring to do lists by date and time. (Think recurring events on google calendar + to-do list app). No matter how much is on your plate, Wunderlist 2.0 makes it super easy to remember all the little recurring to-dos and surprise to-dos that pop up unexpectedly.
+Be as specific as possible; how does your app solve the problem?
+Wunderlist aims to solve busy people’s lives by allowing a user to add a task, mark as complete, and delete a task. You can even add a task for the future via the calendar. The app will automatically show you the tasks you have for the day upon opening the app.
+What is the mission statement?
+Never have to “wonder” about your day, let WunderList do it for you.
+💡 Features
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+What features are required for your minimum viable product?
+ 1. An on-boarding process for a new general user (Register, Login)
+ 3. Ability to easily create / setup a to do list item
+ 4. Ability to easily edit / update / mark items as complete
+ 5. Ability to completely delete an item
+ 6. Ability to easily search / find items
+ 7. Ability to schedule items and automatically repeat on a weekly or daily or monthly basis
+ 8. Page to display their existing to-do’s for the day, or for the month. Can also view items marked as completed, and deleted items (saved for seven days)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+What features may you wish to put in a future release?
+1. Add the ability to collaborate with other Wunderlisters.
+2. Share your lists and work collaboratively on projects with your colleagues, friends and family.
+What do the top 3 similar apps do for their users?
+Share lists amongst different app users.
+🛠 Frameworks - Libraries
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+What 3rd party frameworks/libraries are you considering using?
+Cloudinary
+React
+Redux
+Moment 
+Express
+material -ui/ styled-components/ etc
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Do the APIs you need require you to contact them to gain access?
+Nope
+Are you required to pay to use said API(s)?
+Nope
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+🎯 Target Audience
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Who is your target audience? Be specific.
+Organizers. Really anybody. Students, Teachers (those who like recurring lists so they don’t forget)
+What feedback have you gotten from potential users?
+N/A
+Have you validated this problem and your solution with a target audience? Describe how,
+N/A
 
-## Learn More
+🔑 Prototype Key Feature(s)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+How long do you think it will take to implement these features?
+Hopefully a week. Mon - Friday Morning
+Do you anticipate working on stretch functionality after completion of a Minimal Viable Product?
+Yeah! We’ll go for it. 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+Other:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
